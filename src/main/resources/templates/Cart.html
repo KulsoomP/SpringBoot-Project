@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+        /* Reset some default styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Navigation bar styles */
+        .navbar {
+            background-color: #000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .navbar .menu-links {
+            display: flex;
+        }
+
+        .navbar .menu-links a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 18px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .navbar .cart-icon {
+            color: #fff;
+            font-size: 24px;
+        }
+
+        .navbar .menu-links a:hover {
+            color: #fdd1dc;
+        }
+
+        /* Cart page styles */
+        .cart-container {
+            padding: 20px;
+        }
+
+        .cart-container h2 {
+            text-align: center;
+        }
+
+        .cart-items {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .cart-item {
+            width: 300px;
+            margin: 10px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        .cart-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .cart-item h3 {
+            margin: 0;
+        }
+
+        .cart-item p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+<!-- Navigation bar markup -->
+<div class="navbar">
+    <div class="menu-links">
+        <a href="#" th:href="@{UserMenu}">Home</a>
+        <a class="active" href="#" th:href="@{ProductDisplay}">Products</a>
+        <a href="AboutUs.html" th:href="@{AboutUs}">About Us</a>
+        <a href="ContactUs.html" th:href="@{ContactUs}">Contact</a>
+    </div>
+    <div>
+<!--        <a href="#"><i class="cart-icon">🛒</i></a>-->
+        <a href="Cart.html" th:href="@{Cart}"><i class="cart-icon" >🛒</i></a>
+    </div>
+</div>
+
+<div class="cart-container">
+    <h2>Your Cart</h2>
+    <div class="cart-items">
+        <!-- Use Thymeleaf to iterate over the cart items and display them -->
+        <div class="cart-item" th:each="product : ${cartItems}">
+<!--            <div class="cart-item" th:each="product : ${cartItems}">-->
+
+            <img th:src="${product.imageUrl}" alt="Product Image" />
+            <div>
+                <h3 th:text="${product.name}"></h3>
+<!--                <p th:text="${product.description}"></p>-->
+                <p th:text="${product.price}"></p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

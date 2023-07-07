@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+        /* Reset some default styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Login form styles */
+        .login-form {
+            max-width: 300px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f2f2f2;
+            border-radius: 5px;
+        }
+
+        .login-form h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .login-form input[type="text"],
+        .login-form input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .login-form button {
+            width: 100%;
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .login-form button:hover {
+            background-color: #45a049;
+        }
+
+        .login-form .error-message {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<form id="myForm" action="/register" method="post">
+<!-- Login form markup -->
+<div class="login-form">
+    <h2>Login</h2>
+    <input type="text" id="username" name="Username" placeholder="Username" required>
+    <input type="password" id="password" name="Password" placeholder="Password" required>
+    <button type="submit"  onclick="validateForm()">Login</button>
+    <p id="error-message" class="error-message"></p>
+</div>
+</form>
+<!-- JavaScript code for form validation -->
+<script>
+       <script>
+    function validateForm() {
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+
+        if (username === "admin" && password === "pass") {
+            // Redirect to Page 2
+            window.location.href = "/AdminMenu";
+        } else {
+            // Redirect to Page 3
+            window.location.href = "/register";
+        }
+    }
+</script>
+    </script>
+</body>
+</html>

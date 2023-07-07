@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+  <style>
+    /* Navbar styles */
+    .navbar {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+    }
+
+    .navbar ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .navbar li {
+      float: left;
+    }
+
+    .navbar li a {
+      display: block;
+      color: #fff;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    .navbar li a:hover {
+      background-color: #111;
+    }
+
+    /* Active link style */
+    .active {
+      background-color: #4CAF50;
+    }
+  </style>
+</head>
+<body>
+<div class="navbar">
+  <ul>
+    <li><a class="active" href="#home">CoCo Cake</a></li>
+    <li><a href="./AddProduct.html" th:href="@{AddProduct}">Add Products</a></li>
+    <li><a href="#users"  th:href="@{DisplayAdmin}">Update</a></li>
+    <li><a href="#settings" th:href="@{DisplayAdmin}">Delete</a></li>
+    <li style="float:right"><a href="#logout" th:href="@{Logout}">Logout</a></li>
+  </ul>
+</div>
+
+
+<h1>Hello Admin </h1>
+<p>Welcome ! to admin panel </p>
+<h2>You can perform curd operations on products</h2>
+<h2>You can add product , update the products ,  delete the product from database</h2>
+
+
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Edit Product</title>
+    <style>
+        body {
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+        }
+
+        form div {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        textarea,
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #f8f8f8;
+            color: #333;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+<h2>Edit Product</h2>
+<!--<form th:action="/updateProduct" method="post" th:object="${value}" >-->
+<form th:action="@{/updateProductNew}" method="post" th:object="${value}">
+
+    <input type="hidden" th:field="*{id}" />
+    <div>
+        <label >Product Name:</label>
+        <input type="text" th:field="*{name}" required />
+    </div>
+    <div>
+        <label >Description:</label>
+        <textarea th:field="*{description}" required></textarea>
+    </div>
+    <div>
+        <label >Price:</label>
+        <input type="number" th:field="*{price}" step="0.01" required />
+    </div>
+    <div>
+        <label >Quantity:</label>
+        <input type="number" th:field="*{quantity}" required />
+    </div>
+    <div>
+        <label >Image URL:</label>
+        <input type="text" th:field="*{imageUrl}" required />
+    </div>
+    <div>
+        <button type="submit">Update Product</button>
+    </div>
+</form>
+</body>
+</html>

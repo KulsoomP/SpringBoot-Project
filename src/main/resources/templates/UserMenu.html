@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+        /* Reset some default styles */
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Style the navigation bar */
+        .navbar {
+            background-color: #000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+        }
+
+        /* Style the navigation links */
+        .navbar .menu-links {
+            display: flex;
+        }
+
+        .navbar .menu-links a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 18px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        /* Style the shopping cart icon */
+        .navbar .cart-icon {
+            color: #fff;
+            font-size: 24px;
+        }
+
+        /* Style the login button */
+        .navbar .login-button {
+            background-color: #fff;
+            color: #000;
+            border: none;
+            padding: 8px 16px;
+            font-size: 14px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar .login-button:hover {
+            background-color: #ddd;
+        }
+
+        /* Change the color of the links on hover */
+        .navbar .menu-links a:hover {
+            color: #fdd1dc;
+        }
+
+        /* Style the active link */
+        .navbar .menu-links .active {
+            color: #fdd1dc;
+            font-weight: bold;
+        }
+         /* Card styles */
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .card {
+            width: 300px;
+            margin: 10px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .card h3 {
+            margin: 0;
+        }
+
+        .card p {
+            margin: 10px 0;
+        }
+
+        .card button {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        h2 {
+          text-align: center;
+        }
+        .card button:hover {
+            background-color: #45a049;
+        }
+        /* Reset some default styles */
+        body {
+            margin: 0;
+            padding: 0;
+        }
+ body {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #333;
+      text-align: center;
+      margin-top: 0;
+    }
+
+    p {
+      color: #666;
+      line-height: 1.6;
+    }
+
+    .section-title {
+      color: #333;
+      font-size: 20px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .services-container {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .service-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      width: 180px;
+      height: 180px;
+      background-color: #fff;
+      border-radius: 50%;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s ease;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .service-card:hover {
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .service-icon {
+      font-size: 40px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .service-title {
+      color: #333;
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .service-description {
+      color: #666;
+      font-size: 14px;
+    }
+        /* Footer styles */
+        .footer {
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Footer link styles */
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+    </style>
+
+</head>
+<body>
+<!-- Navigation bar markup -->
+<div class="navbar">
+    <div class="menu-links">
+        <a class="active" href="UserMenu" th:href="@{UserMenu}"> Home</a>
+        <a href="/ProductDisplay.html" th:href="@{ProductDisplay}">Products</a>
+        <a href="AboutUs.html" th:href="@{AboutUs}">AboutUs</a>
+        <a href="ContactUs.html" th:href="@{ContactUs}">Contact</a>
+        <a href="#logout" th:href="@{Logout}">Logout</a>
+
+    </div>
+    <div>
+        <a href="Cart.html" th:href="@{Cart}"><i class="cart-icon"  th:href="@{Cart}">🛒</i></a>
+    </div>
+</div>
+
+<!-- Rest of the page content goes here -->
+
+<h2>Trending </h2>
+<div class="card-container">
+    <div class="card">
+        <img class="card-img-top" src="donut.jpg" height="200px" width="300px" alt="Product Image" />
+        <div class="card-body">
+            <h3 class="card-title">Doughnut</h3>
+            <p class="card-text"> multicolored glaze on trendy pink surface</p>
+            <p class="card-text">Price: 50/- </p>
+        </div>
+    </div>
+    <div class="card">
+        <img class="card-img-top" src="pinkcake.jpg" height="200px" width="300px" alt="Product Image" />
+        <div class="card-body">
+            <h3 class="card-title">Delicious gulkand cake</h3>
+            <p class="card-text">Our Speciality , madeup of milk,khava n etc</p>
+            <p class="card-text">Price: 300/- kg</p>
+        </div>
+    </div>
+    <div class="card">
+        <img class="card-img-top" src="cupcake.jpg" height="200px" width="300px" alt="Product Image" />
+        <div class="card-body">
+            <h3 class="card-title">Cup Cake</h3>
+            <p class="card-text">mouth-watering Cup Cake</p>
+            <p class="card-text">Price: 40 /-</p>
+        </div>
+    </div>
+</div>
+<!-- Services Section -->
+<!-- Services Section -->
+<div class="container">
+    <h1>Services</h1>
+    <div class="services-container">
+        <div class="service-card">
+            <i class="service-icon">🎂</i>
+            <h3 class="service-title">Custom Cakes</h3>
+            <p class="service-description">We create personalized cakes for your special occasions, tailored to your preferences and themes.</p>
+        </div>
+        <div class="service-card">
+            <i class="service-icon">🧁</i>
+            <h3 class="service-title">Cupcakes</h3>
+            <p class="service-description">Indulge in our delectable cupcakes available in various flavors and designs.</p>
+        </div>
+        <div class="service-card">
+            <i class="service-icon">🎉</i>
+            <h3 class="service-title">Celebration Cakes</h3>
+            <p class="service-description">Make your celebrations memorable with our specially crafted celebration cakes.</p>
+        </div>
+        <div class="service-card">
+            <i class="service-icon">🍰</i>
+            <h3 class="service-title">Desserts</h3>
+            <p class="service-description">Delight your taste buds with our irresistible range of mouthwatering desserts.</p>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- Footer -->
+<footer class="footer">
+    <p>CoCo Cake &copy; 2023. All rights reserved.</p>
+    <p>Address: 123 Street, City, Country          Phone: 123-456-7890         Email: info@example.com</p>
+    <p>
+        Follow us on:
+        <a href="#" target="_blank">Facebook</a>
+        <a href="#" target="_blank">Twitter</a>
+        <a href="#" target="_blank">Instagram</a>
+    </p>
+</footer>
+</body>
+</html>

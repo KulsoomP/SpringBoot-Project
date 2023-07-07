@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Product List</title>
+  <style>
+
+    /* Page styles */
+    body {
+      background-color: #f2f2f2;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    /* Table styles */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #333;
+      color: #fff;
+    }
+
+    td {
+      border-bottom: 1px solid #ddd;
+    }
+
+    /* Update and delete buttons */
+    .btn-group {
+      display: flex;
+      justify-content: center;
+    }
+
+    .btn-group button {
+      margin: 5px;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 4px;
+      font-size: 14px;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .btn-edit {
+      background-color: #4CAF50;
+    }
+
+    .btn-delete {
+      background-color: #f44336;
+    }
+
+    .btn-edit:hover, .btn-delete:hover {
+      opacity: 0.8;
+    }
+    /* Navbar styles */
+    .navbar {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+    }
+
+    .navbar ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .navbar li {
+      float: left;
+    }
+
+    .navbar li a {
+      display: block;
+      color: #fff;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    .navbar li a:hover {
+      background-color: #111;
+    }
+
+    /* Active link style */
+    .active {
+      background-color: #4CAF50;
+    }
+  </style>
+</head>
+<body>
+<div class="navbar">
+  <ul>
+    <li><a class="active" href="#home" th:href="@{AdminMenu}">CoCo Cake</a></li>
+    <li><a href="./AddProduct.html" th:href="@{AddProduct}">Add Products</a></li>
+    <li><a href="#users"  th:href="@{DisplayAdmin}">Update</a></li>
+    <li><a href="#settings" th:href="@{DisplayAdmin}">Delete</a></li>
+    <li style="float:right"><a href="#logout" th:href="@{Logout}">Logout</a></li>
+  </ul>
+</div>
+
+<h2>Product List</h2>
+<table>
+  <thead>
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Image</th>
+    <th>Description</th>
+    <th>Price</th>
+    <th>Quantity</th>
+    <th>Actions</th>
+
+
+
+  </tr>
+  </thead>
+  <tbody>
+  <!-- Iterate over the product list and display each product -->
+  <tr th:each="product : ${products}">
+    <td th:text="${product.id}"></td>
+    <td th:text="${product.name}"></td>
+    <td><img th:src="${product.imageUrl}" height="150px" width="300px" /></td>
+    <td th:text="${product.description}"></td>
+    <td th:text="${product.price}"></td>
+    <td th:text="${product.quantity}"></td>
+    <td >
+      <a th:href="@{/updateProduct/{id}(id=${product.id})}"><button class="btn-edit">Edit</button></a>
+      <a th:href="@{/deleteProduct/{id}(id=${product.id})}"><button class="btn-delete">Delete</button></a>
+
+
+
+    </td>
+<!--    <td class="btn-group">-->
+<!--      <button class="btn-edit">Edit</button>-->
+<!--      <button class="btn-delete">Delete</button>-->
+<!--    </td>-->
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>
